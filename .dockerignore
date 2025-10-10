@@ -1,0 +1,19 @@
+#. libs
+support/
+tests/reports/
+vendor/
+
+# temp files
+*.log
+*.tmp
+*.cache
+
+# vcs files
+.git*
+
+# ide files
+*.idea
+*.vscode
+
+# config environemnt
+.env
