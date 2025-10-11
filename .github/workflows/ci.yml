@@ -17,6 +17,7 @@ on:
       - 'tests/**'
       - 'composer.json'
       - '.github/workflows/**'
+  workflow_dispatch:
 
 jobs:
   build-and-test:
