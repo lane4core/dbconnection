@@ -1,7 +1,7 @@
 {
   "name": "lane4core/dbconnection",
   "description": "DbConnection is a factory to create PDO database connections and delivers a professional PDO connection wrapper.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "type": "library",
   "license": "MIT",
   "minimum-stability": "stable",
