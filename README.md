@@ -57,7 +57,7 @@ All connection classes expect a configuration array with parameters such as:
     'host'     => 'localhost',
     'port'     => 3306 | 5432,
     'database' => 'mydb',
-    'username' => 'user',
+    'user'     => 'user',
     'password' => 'secret',
     'charset'  => 'utf8mb4',
     'options'  => [
@@ -90,7 +90,7 @@ $config = [
     'host'     => '127.0.0.1',
     'port'     => 3306,
     'database' => 'testdb',
-    'username' => 'dbuser',
+    'user'     => 'dbuser',
     'password' => 'dbpass',
     'charset'  => 'utf8mb4',
 ];
@@ -111,7 +111,7 @@ $config = [
     'host'     => 'localhost',
     'port'     => 5432,
     'database' => 'testdb',
-    'username' => 'pguser',
+    'user'     => 'pguser',
     'password' => 'pgpass',
 ];
 

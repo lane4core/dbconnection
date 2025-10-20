@@ -57,7 +57,7 @@ Alle Connection-Klassen erwarten ein Konfigurationsarray mit Parametern wie:
     'host'     => 'localhost',
     'port'     => 3306 | 5432,
     'database' => 'mydb',
-    'username' => 'user',
+    'user'     => 'user',
     'password' => 'secret',
     'charset'  => 'utf8mb4',
     'options'  => [
@@ -111,7 +111,7 @@ $config = [
     'host'     => 'localhost',
     'port'     => 5432,
     'database' => 'testdb',
-    'username' => 'pguser',
+    'user'     => 'pguser',
     'password' => 'pgpass',
 ];
 
