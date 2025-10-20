@@ -19,16 +19,19 @@ services:
       - XDEBUG_LOG_LEVEL=${XDEBUG_LOG_LEVEL:-0}
       # Database connection environment variables for tests
       - MYSQL_HOST=mysql
+      - MYSQL_VERSION=${MYSQL_VERSION:-8.0}
       - MYSQL_PORT=${MYSQL_PORT:-3306}
       - MYSQL_DATABASE=${MYSQL_DATABASE:-test_db}
       - MYSQL_USER=${MYSQL_USER:-test_user}
       - MYSQL_PASSWORD=${MYSQL_PASSWORD:-test_password}
       - MARIADB_HOST=mariadb
+      - MARIADB_VERSION=${MARIADB_VERSION:-11.2}
       - MARIADB_PORT=${MARIADB_PORT:-3306}
       - MARIADB_DATABASE=${MARIADB_DATABASE:-test_db}
       - MARIADB_USER=${MARIADB_USER:-test_user}
       - MARIADB_PASSWORD=${MARIADB_PASSWORD:-test_password}
       - POSTGRES_HOST=postgres
+      - POSTGRES_VERSION=${POSTGRES_VERSION:-16}
       - POSTGRES_PORT=${POSTGRES_PORT:-5432}
       - POSTGRES_DATABASE=${POSTGRES_DATABASE:-test_db}
       - POSTGRES_USER=${POSTGRES_USER:-test_user}
