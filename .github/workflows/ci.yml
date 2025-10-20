@@ -21,7 +21,7 @@ on:
 
 jobs:
   build-and-test:
-    name: Lane4 Digital DbConnection - Run Build, QA Tools and Tests
+    name: Lane4 Digital DbConnection
     runs-on: ubuntu-latest
 
     steps:
