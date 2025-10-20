@@ -1,6 +1,6 @@
 # DbConnection
 
-A flexible package for creating and managing database connections (PDO-based) with support for **MySQL/MariaDB**, **PostgreSQL**, and **SQLite**.
+A flexible package for creating and managing database connections (PDO-based) with support for **MySQL/MariaDB**, **PostgresSQL**, and **SQLite**.
 
 ---
 
@@ -42,7 +42,7 @@ For local development:
 ```bash
 git clone https://github.com/lane4core/dbconnection.git
 cd dbconnection
-composer install
+make install
 ```
 
 ---
@@ -83,7 +83,7 @@ For SQLite:
 ### MySQL / MariaDB
 
 ```php
-use Lane4Core\DbConnection\Connection\MySqlConnection;
+use Lane4Core\DbConnection\Support\MySql;
 
 $config = [
     'driver'   => 'mysql',
@@ -104,7 +104,7 @@ $rows = $stmt->fetchAll();
 ### PostgreSQL
 
 ```php
-use Lane4Core\DbConnection\Connection\PostgreSqlConnection;
+use Lane4Core\DbConnection\Support\Postgres;
 
 $config = [
     'driver'   => 'pgsql',
@@ -124,7 +124,7 @@ $data = $stmt->fetchAll();
 ### SQLite (In-Memory)
 
 ```php
-use Lane4Core\DbConnection\Connection\SqliteConnection;
+use Lane4Core\DbConnection\Support\SqLite;
 
 $config = [
     'driver'   => 'sqlite',
@@ -156,10 +156,8 @@ If you want to implement custom behaviors such as logging, query profiling, or c
 The project includes PHPUnit tests under `tests/`.
 
 ```bash
-vendor/bin/phpunit
+make phpunit
 ```
-
-SQLite is used by default for testing.
 
 ---
 
@@ -178,15 +176,6 @@ Typical CI steps:
 2. `make phpcs`
 3. `make phpstan`
 4. `make phpunit-coverage`
-
----
-
-## Roadmap & Notes
-
-* Connection Pooling (Context: Application Server) -> DbConnectionPool (10.2025)
-* Database Schema -> DbSchema (10.2025)
-* Database Query -> DbQuery (10.2025)
-* PSR-compatible Logger Integration (11.2025)
 
 ---
 

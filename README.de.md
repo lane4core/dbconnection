@@ -1,6 +1,6 @@
 # DbConnection
 
-Ein flexibles Paket zur Erzeugung und Verwaltung von Datenbankverbindungen (PDO-basiert) mit Unterstützung für **MySQL/MariaDB**, **PostgreSQL** und **SQLite**. 
+Ein flexibles Paket zur Erzeugung und Verwaltung von Datenbankverbindungen (PDO-basiert) mit Unterstützung für **MySQL/MariaDB**, **PostgresSQL** und **SQLite**. 
 
 ---
 
@@ -42,7 +42,7 @@ Beim Entwickeln lokal:
 ```bash
 git clone https://github.com/lane4core/dbconnection.git
 cd dbconnection
-composer install
+make install
 ```
 
 ---
@@ -83,14 +83,14 @@ Für SQLite:
 ### MySQL / MariaDB
 
 ```php
-use Lane4Core\DbConnection\Connection\MySqlConnection;
+use Lane4Core\DbConnection\Support\MySql;
 
 $config = [
     'driver'   => 'mysql',
     'host'     => '127.0.0.1',
     'port'     => 3306,
     'database' => 'testdb',
-    'username' => 'dbuser',
+    'user' => 'dbuser',
     'password' => 'dbpass',
     'charset'  => 'utf8mb4',
 ];
@@ -101,10 +101,10 @@ $stmt = $connection->pdo()->query('SELECT * FROM users');
 $rows = $stmt->fetchAll();
 ```
 
-### PostgreSQL
+### PostgresSQL
 
 ```php
-use Lane4Core\DbConnection\Connection\PostgreSqlConnection;
+use Lane4Core\DbConnection\Support\Postgres;
 
 $config = [
     'driver'   => 'pgsql',
@@ -124,7 +124,7 @@ $data = $stmt->fetchAll();
 ### SQLite (In‑Memory)
 
 ```php
-use Lane4Core\DbConnection\Connection\SqliteConnection;
+use Lane4Core\DbConnection\Support\SqLite;
 
 $config = [
     'driver'   => 'sqlite',
@@ -156,10 +156,8 @@ Wenn du spezielles Verhalten wie Logging, Query-Profiling oder Caching implement
 Das Projekt enthält PHPUnit-Tests unter `tests/`.
 
 ```bash
-vendor/bin/phpunit
+make phpunit
 ```
-
-Standardmäßig wird SQLite für Tests verwendet.
 
 ---
 
@@ -178,14 +176,6 @@ Typische CI-Schritte:
 2. `make phpcs`
 3. `make phpstan`
 4. `make phpunit-coverage`
-
----
-
-## Roadmap & Hinweise
-* Connection-Pooling (Kontext: Application Server) -> DbConnectionPool (10.2025)
-* Datenbank Schema -> DbSchema (10.2025)
-* Datenbank Query -> DbQuery (10.2025)
-* PSR‑kompatible Logger-Integration (11.2025)
 
 ---
 

@@ -128,9 +128,9 @@ final class MySqlTest extends TestCase
             $this->port
         );
 
-        $dbName = $this->connection->getDatabaseName();
+        $database = $this->connection->getDatabaseName();
 
-        $this->assertSame($this->database, $dbName);
+        $this->assertSame($this->database, $database);
     }
 
     public function testGetServerVersion(): void

@@ -80,10 +80,10 @@ final class SqLiteTest extends TestCase
     {
         $this->connection = new SqLite($this->testDbPath);
 
-        $dbName = $this->connection->getDatabaseName();
+        $database = $this->connection->getDatabaseName();
 
-        $this->assertStringContainsString('test_sqlite_', $dbName);
-        $this->assertStringContainsString('.db', $dbName);
+        $this->assertStringContainsString('test_sqlite_', $database);
+        $this->assertStringContainsString('.db', $database);
     }
 
     public function testGetServerVersion(): void
