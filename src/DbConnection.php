@@ -20,7 +20,15 @@ final class DbConnection implements DbConnectionFactoryInterface
      * Creates a database connection instance based on the specified driver and configuration.
      *
      * @param string $driver The database driver to use (e.g., MySQL, PostgresSQL, SQLite).
-     * @param array<string, mixed> $config The configuration array for the database connection.
+     * @param array{
+     *     host?: string,
+     *     user?: string,
+     *     password?: string,
+     *     database?: string,
+     *     port?: int,
+     *     path?: string,
+     *     options?: array<int, mixed>
+     * } $config The configuration array for the database connection.
      * @return DbConnectionInterface The database connection instance for the specified driver.
      *
      * @throws InvalidArgumentException If the driver is unsupported or the required configuration is missing.
@@ -67,8 +75,8 @@ final class DbConnection implements DbConnectionFactoryInterface
             'host' => $config['host'] ?? throw new InvalidArgumentException('Missing host'),
             'user' => $config['user'] ?? throw new InvalidArgumentException('Missing user'),
             'password' => $config['password'] ?? throw new InvalidArgumentException('Missing password'),
-            'dbName' => $config['database'] ?? throw new InvalidArgumentException('Missing database'),
-            'dbPort' => $config['port'] ?? $defaultPort,
+            'database' => $config['database'] ?? throw new InvalidArgumentException('Missing database'),
+            'port' => $config['port'] ?? $defaultPort,
             'options' => $config['options'] ?? [],
         ];
     }

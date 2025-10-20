@@ -14,8 +14,8 @@ class MySql extends AbstractPdoConnection
     private string $host;
     private string $user;
     private string $password;
-    private string $dbName;
-    private int $dbPort;
+    private string $database;
+    private int $port;
     private string $charset;
     /** @var array<int|mixed> */
     private array $options;
@@ -24,8 +24,8 @@ class MySql extends AbstractPdoConnection
      * @param string $host The hostname or IP address of the MySQL server
      * @param string $user The username for the connection
      * @param string $password The password for the connection
-     * @param string $dbName The name of the MySQL database
-     * @param int $dbPort The port of the MySQL server (default: 3306)
+     * @param string $database The name of the MySQL database
+     * @param int $port The port of the MySQL server (default: 3306)
      * @param string $charset The character set to use (default: utf8mb4)
      * @param array<int|mixed> $options Additional PDO options
      * @throws RuntimeException On connection error
@@ -34,20 +34,20 @@ class MySql extends AbstractPdoConnection
         string $host,
         string $user,
         string $password,
-        string $dbName,
-        int $dbPort = 3306,
+        string $database,
+        int $port = 3306,
         string $charset = 'utf8mb4',
         array $options = []
     ) {
         $this->host = $host;
         $this->user = $user;
         $this->password = $password;
-        $this->dbName = $dbName;
-        $this->dbPort = $dbPort;
+        $this->database = $database;
+        $this->port = $port;
         $this->charset = $charset;
         $this->options = $options;
 
-        $this->connect($this->buildDsn(), $user, $password, $options, $dbName);
+        $this->connect($this->buildDsn(), $user, $password, $options, $database);
     }
 
     public function getDriverName(): string
@@ -60,8 +60,8 @@ class MySql extends AbstractPdoConnection
         return sprintf(
             'mysql:host=%s;port=%d;dbname=%s;charset=%s',
             $this->host,
-            $this->dbPort,
-            $this->dbName,
+            $this->port,
+            $this->database,
             $this->charset
         );
     }
@@ -71,7 +71,7 @@ class MySql extends AbstractPdoConnection
         $this->disconnect();
 
         try {
-            $this->connect($this->buildDsn(), $this->user, $this->password, $this->options, $this->dbName);
+            $this->connect($this->buildDsn(), $this->user, $this->password, $this->options, $this->database);
         } catch (RuntimeException $e) {
             throw new RuntimeException(
                 sprintf('MySQL reconnection failed: %s', $e->getMessage()),
